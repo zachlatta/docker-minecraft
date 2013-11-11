@@ -1,11 +1,12 @@
 FROM zachlatta/jvm
 MAINTAINER Zach Latta <zach@zachlatta.com>
 
-RUN useradd -s /bin/bash -m minecraft
-ADD https://s3.amazonaws.com/Minecraft.Download/versions/1.7.2/minecraft_server.1.7.2.jar /home/minecraft/minecraft_server.jar
-RUN chown -R minecraft:minecraft /home/minecraft
+RUN useradd -s /bin/bash -d /minecraft -m minecraft
+ADD https://s3.amazonaws.com/Minecraft.Download/versions/1.7.2/minecraft_server.1.7.2.jar /minecraft/minecraft_server.jar
+RUN chown -R minecraft:minecraft /minecraft
 
 USER minecraft
 EXPOSE 25565
-WORKDIR /home/minecraft
+WORKDIR /minecraft
+
 ENTRYPOINT java -Xmx1024M -Xms1024M -jar minecraft_server.jar
