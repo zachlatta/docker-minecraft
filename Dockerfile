@@ -2,7 +2,8 @@ FROM zachlatta/jvm
 MAINTAINER Zach Latta <zach@zachlatta.com>
 
 RUN useradd -s /bin/bash -d /minecraft -m minecraft
-ADD https://s3.amazonaws.com/Minecraft.Download/versions/1.7.2/minecraft_server.1.7.2.jar /minecraft/minecraft_server.jar
+ADD https://s3.amazonaws.com/Minecraft.Download/versions/1.7.10/minecraft_server.1.7.10.jar /minecraft/minecraft_server.jar
+ADD eula.txt /minecraft/eula.txt
 RUN chown -R minecraft:minecraft /minecraft
 
 VOLUME /minecraft

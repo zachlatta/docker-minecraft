@@ -1,0 +1,2 @@
+# By using this image, you agree to Minecraft's EULA.
+eula=true
